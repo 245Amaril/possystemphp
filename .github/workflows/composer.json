@@ -1,7 +1,0 @@
-{
-  "name": "245amaril/possystemphp",
-  "description": "Project POS System PHP",
-  "require": {
-    "php": ">=7.4"
-  }
-}
