@@ -22,9 +22,11 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
     </span>
   </header>
   <nav>
-      <a href="index.php?page=home" class="<?php echo ($page=='home') ? 'active' : ''; ?>">Home</a>
-      <a href="index.php?page=cart" class="<?php echo ($page=='cart') ? 'active' : ''; ?>">Cart</a>
-      <a href="index.php?page=supplies" class="<?php echo ($page=='supplies') ? 'active' : ''; ?>">Supplies</a>
+    <a href="index.php?page=home" class="<?= $page == 'home' ? 'active' : ''; ?>">Home</a>
+    <a href="index.php?page=cart" class="<?= $page == 'cart' ? 'active' : ''; ?>">Cart</a>
+    <?php if ($_SESSION['role'] === 'admin'): ?>
+      <a href="index.php?page=supplies" class="<?= $page == 'supplies' ? 'active' : ''; ?>">Supplies</a>
+    <?php endif; ?>
   </nav>
   <div class="container">
     <?php

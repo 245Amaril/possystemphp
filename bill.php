@@ -59,15 +59,15 @@ $resultItems = $conn->query($queryItems);
                 $total += $subtotal;
                 echo "<tr>
                         <td>" . htmlspecialchars($item['name']) . "</td>
-                        <td>$" . number_format($item['price'], 2) . "</td>
+                        <td>" . number_format($item['price'], 2) . "</td>
                         <td>" . $item['quantity'] . "</td>
-                        <td>$" . number_format($subtotal, 2) . "</td>
+                        <td>" . number_format($subtotal, 2) . "</td>
                       </tr>";
             }
             ?>
             <tr>
                 <td colspan="3"><strong>Total</strong></td>
-                <td><strong>$<?php echo number_format($total, 2); ?></strong></td>
+                <td><strong><?php echo number_format($total, 2); ?></strong></td>
             </tr>
             </tbody>
         </table>

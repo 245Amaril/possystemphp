@@ -7,7 +7,7 @@ $data = $result->fetch_assoc();
 ?>
 <h2>Sales Summary</h2>
 <p>Total Completed Transactions: <strong><?php echo $data['total_carts'] ?: 0; ?></strong></p>
-<p>Total Sales Amount: <strong>$<?php echo number_format($data['total_sales'] ?: 0, 2); ?></strong></p>
+<p>Total Sales Amount: <strong><?php echo number_format($data['total_sales'] ?: 0, 2); ?></strong></p>
 <?php
 // home.php – Sales Summary section at the top of Home
 require_once('config.php'); // Ensure that the DB connection and session are active
@@ -52,7 +52,7 @@ if (isset($_GET['delete_bill'])) {
       <tr>
         <td><?php echo $bill_id; ?></td>
         <td><?php echo $bill['created_at']; ?></td>
-        <td>$<?php echo number_format($bill['total'], 2); ?></td>
+        <td><?php echo number_format($bill['total'], 2); ?></td>
         <td><?php echo $sold_items; ?></td>
         <td>
           <!-- View Bill button navigates to the detailed bill view -->

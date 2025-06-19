@@ -117,7 +117,7 @@ if (isset($_POST['finalize_cart'])) {
         $total += $subtotal;
         echo "<tr>
                <td>" . htmlspecialchars($item['name']) . "</td>
-               <td>$" . number_format($item['price'],2) . "</td>
+               <td>" . number_format($item['price'],2) . "</td>
                <td>
                    <form method='post' style='display:inline-block;'>
                        <input type='hidden' name='cart_item_id' value='{$item['cart_item_id']}'>
@@ -125,14 +125,14 @@ if (isset($_POST['finalize_cart'])) {
                        <input type='submit' name='update_item' class='btn' value='Edit'>
                    </form>
                </td>
-               <td>$" . number_format($subtotal,2) . "</td>
+               <td>" . number_format($subtotal,2) . "</td>
                <td><a class='btn' href='delete_cart_item.php?id={$item['cart_item_id']}&cart_id={$cart_id}' onclick=\"return confirm('Delete this item?');\">Delete</a></td>
               </tr>";
     }
     ?>
     <tr>
         <td colspan="3" align="right"><strong>Total:</strong></td>
-        <td colspan="2"><strong>$<?php echo number_format($total,2); ?></strong></td>
+        <td colspan="2"><strong><?php echo number_format($total,2); ?></strong></td>
     </tr>
 </table>
 
