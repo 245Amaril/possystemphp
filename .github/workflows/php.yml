@@ -16,22 +16,21 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Setup PHP, pastikan versi sesuai yang kamu butuhkan dan tambahkan ekstensi jika diperlukan.
+      # Setup PHP dengan versi 8.1 dan ekstensi yang dibutuhkan.
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
-          # daftar ekstensi PHP yang ingin diaktifkan
           extensions: mbstring, intl, pdo_mysql
-          # mengatur nilai php.ini jika butuh
           ini-values: post_max_size=256M, max_execution_time=300
           coverage: xdebug
 
-      # Optional: Cache dependensi Composer untuk mempercepat builds di workflow berikutnya.
+      # Mendapatkan direktori Composer cache.
       - name: Get Composer cache directory
         id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
+      # Menggunakan cache untuk mempercepat instalasi Composer dependencies.
       - name: Cache Composer dependencies
         uses: actions/cache@v3
         with:
@@ -39,10 +38,10 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      # Install dependensi project menggunakan Composer
+      # Instal dependensi project menggunakan Composer.
       - name: Install Dependencies
         run: composer install --prefer-dist --no-progress
 
-      # Jalankan testing menggunakan PHPUnit
+      # Jalankan testing menggunakan PHPUnit.
       - name: Run Tests
         run: vendor/bin/phpunit --coverage-text --colors=never
