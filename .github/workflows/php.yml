@@ -41,7 +41,7 @@ jobs:
 
       # Install dependensi project menggunakan Composer
       - name: Install Dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress
 
       # Jalankan testing menggunakan PHPUnit
       - name: Run Tests
