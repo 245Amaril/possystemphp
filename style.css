@@ -1,0 +1,255 @@
+/* ======================================================== */
+/* Global Reset and Base Styles                         */
+/* ======================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f1f5f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ======================================================== */
+/* Container (Bootstrap-like wrapper)                   */
+/* ======================================================== */
+.container {
+  max-width: 1140px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* ======================================================== */
+/* Header                                               */
+/* ======================================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(45deg, #4287f5, #4e73df);
+  color: #fff;
+  padding: 15px 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+}
+
+.header .welcome {
+  font-size: 1rem;
+}
+
+.header .welcome a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.header .welcome a:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ======================================================== */
+/* Navigation                                           */
+/* ======================================================== */
+nav {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+nav a {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: color 0.3s ease, background 0.3s ease;
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+nav a:hover,
+nav a.active {
+  color: #fff;
+  background-color: #4287f5;
+}
+
+/* ======================================================== */
+/* Form Controls and Buttons                            */
+/* ======================================================== */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4287f5;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #4287f5;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 5px;
+}
+
+.btn:hover {
+  background: #306ed1;
+}
+
+/* ======================================================== */
+/* Table Styling                                        */
+/* ======================================================== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table thead {
+  background: #4287f5;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  border: 1px solid #e3e6f0;
+  text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* ======================================================== */
+/* Bill Page Specific Styles                            */
+/* ======================================================== */
+.bill-container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.bill-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bill-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.bill-details {
+  margin-top: 20px;
+}
+
+.total {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.btn-print {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  background: #4287f5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  margin: 10px;
+}
+
+.btn-print:hover {
+  background: #306ed1;
+}
+
+/* ======================================================== */
+/* Supplies Page Specific Styles                        */
+/* ======================================================== */
+.supplies-container {
+  margin-top: 20px;
+}
+
+.supplies-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.supplies-header h2 {
+  font-size: 1.8rem;
+  color: #4287f5;
+}
+
+.supplies-form {
+  margin-bottom: 30px;
+}
+
+.supplies-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.supplies-form input[type="text"],
+.supplies-form input[type="number"],
+.supplies-form input[type="file"] {
+  margin-bottom: 10px;
+}
+
+/* The supplies page table shares the same table styling as above.
+   If you need additional tweaks, you can add them below: */
+.supplies-table {
+  margin-top: 20px;
+}
+
+/* ======================================================== */
+/* Utility Classes                                    */
+/* ======================================================== */
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
