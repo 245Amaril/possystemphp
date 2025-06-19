@@ -1,6 +1,5 @@
 name: PHP CI
 
-# Trigger workflow saat ada push atau pull request ke branch main dan develop.
 on:
   push:
     branches: [ main, develop ]
@@ -12,11 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Langkah 1: Checkout Code
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Langkah 2: Setup PHP dengan versi yang diinginkan
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -24,10 +21,14 @@ jobs:
           extensions: mbstring, intl, pdo_mysql
           ini-values: post_max_size=256M, max_execution_time=300
 
-      # Langkah 3: Install Dependencies via Composer
+      # Jika kamu menggunakan Composer, pastikan file composer.json ada di root.
       - name: Install Dependencies
         run: composer install --prefer-dist --no-progress
 
-      # Opsional: Tambahkan langkah lain sesuai kebutuhan,
-      # misalnya menjalankan build script, CLI command, dll.
-      # Jika di project kamu tidak ada langkah testing, tidak usah menambahkan step Run Tests.
+      # Jika belum ada test, kamu bisa menghapus atau mengomentari langkah ini.
+      # - name: Run Tests
+      #   run: vendor/bin/phpunit --coverage-text --colors=never
+
+      # Contoh tambahan: Melakukan pengecekan sintaks PHP di seluruh file
+      - name: Cek Syntax PHP
+        run: find . -name "*.php" -exec php -l {} \;
